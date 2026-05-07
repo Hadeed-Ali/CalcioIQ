@@ -920,7 +920,6 @@ function RecentMatches({ matches, clubName }) {
       <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden">
         {matches.matches.map((match, i) => {
           const isHome = match.homeTeam.id === matches.teamId
-          const ourTeam = isHome ? match.homeTeam : match.awayTeam
           const opponent = isHome ? match.awayTeam : match.homeTeam
           const ourScore = isHome ? match.score?.home : match.score?.away
           const oppScore = isHome ? match.score?.away : match.score?.home
