@@ -19,13 +19,6 @@ const dropdownStyle = {
   right: 0,
   marginTop: '8px',
   backgroundColor: '#111827',
-  background: '#111827',
-  opacity: 1,
-  backgroundImage: 'none',
-  backdropFilter: 'none',
-  WebkitBackdropFilter: 'none',
-  mixBlendMode: 'normal',
-  isolation: 'isolate',
   border: '1px solid #334155',
   borderRadius: '12px',
   overflow: 'hidden',
@@ -87,48 +80,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-sans relative overflow-hidden">
 
-      {/* Subtle glow background (hoverable) */}
-      <div className="absolute inset-0 z-0 pointer-events-auto">
-        <div
-          className="glow-orb"
-          style={{
-            left: '-6%',
-            top: '18%',
-            width: '520px',
-            height: '520px',
-            background: 'radial-gradient(circle at 35% 35%, rgba(74, 222, 128, 0.16), rgba(74, 222, 128, 0) 62%)',
-            animationDuration: '11s',
-          }}
-        />
-        <div
-          className="glow-orb"
-          style={{
-            right: '-10%',
-            top: '-6%',
-            width: '560px',
-            height: '560px',
-            background: 'radial-gradient(circle at 40% 40%, rgba(56, 189, 248, 0.10), rgba(56, 189, 248, 0) 60%)',
-            animationDuration: '13s',
-            animationDelay: '260ms',
-          }}
-        />
-        <div
-          className="glow-orb"
-          style={{
-            left: '18%',
-            bottom: '-18%',
-            width: '680px',
-            height: '680px',
-            background: 'radial-gradient(circle at 45% 45%, rgba(74, 222, 128, 0.10), rgba(74, 222, 128, 0) 62%)',
-            animationDuration: '15s',
-            animationDelay: '120ms',
-          }}
-        />
-      </div>
-
-      {/* Background patterns */}
+      {/* Background patterns - SVG art + grid + edge glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <svg className="home-side-art absolute left-0 top-0 h-full opacity-[0.07]" width="220" viewBox="0 0 220 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute left-0 top-0 h-full opacity-[0.07]" width="220" viewBox="0 0 220 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="30" cy="120" r="60" stroke="#4ade80" strokeWidth="1" />
           <circle cx="30" cy="120" r="40" stroke="#4ade80" strokeWidth="0.5" />
           <circle cx="30" cy="120" r="20" stroke="#4ade80" strokeWidth="0.5" />
@@ -142,8 +96,6 @@ export default function Home() {
           <circle cx="80" cy="320" r="4" fill="#4ade80" />
           <circle cx="160" cy="320" r="4" fill="#4ade80" />
           <circle cx="50" cy="480" r="30" stroke="#4ade80" strokeWidth="0.8" />
-          <path d="M 30 465 Q 50 450 70 465 Q 50 480 30 465Z" stroke="#4ade80" strokeWidth="0.5" fill="none" />
-          <path d="M 30 495 Q 50 510 70 495 Q 50 480 30 495Z" stroke="#4ade80" strokeWidth="0.5" fill="none" />
           <line x1="20" y1="480" x2="80" y2="480" stroke="#4ade80" strokeWidth="0.5" />
           <rect x="10" y="580" width="50" height="70" rx="2" stroke="#4ade80" strokeWidth="0.8" />
           <line x1="10" y1="615" x2="60" y2="615" stroke="#4ade80" strokeWidth="0.4" />
@@ -152,7 +104,7 @@ export default function Home() {
           <line x1="140" y1="615" x2="140" y2="665" stroke="#4ade80" strokeWidth="0.4" />
         </svg>
 
-        <svg className="home-side-art absolute right-0 top-0 h-full opacity-[0.07]" width="220" viewBox="0 0 220 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute right-0 top-0 h-full opacity-[0.07]" width="220" viewBox="0 0 220 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="190" cy="150" r="55" stroke="#4ade80" strokeWidth="1" />
           <path d="M 165 130 L 190 95 L 215 130 L 205 165 L 175 165 Z" stroke="#4ade80" strokeWidth="0.8" fill="none" />
           <circle cx="190" cy="150" r="15" stroke="#4ade80" strokeWidth="0.5" />
@@ -164,8 +116,6 @@ export default function Home() {
           <circle cx="145" cy="440" r="30" stroke="#4ade80" strokeWidth="0.4" />
           <line x1="100" y1="440" x2="190" y2="440" stroke="#4ade80" strokeWidth="0.4" />
           <line x1="145" y1="395" x2="145" y2="485" stroke="#4ade80" strokeWidth="0.4" />
-          <path d="M 120 415 Q 145 400 170 415 Q 145 430 120 415Z" stroke="#4ade80" strokeWidth="0.5" fill="none" />
-          <path d="M 120 465 Q 145 480 170 465 Q 145 450 120 465Z" stroke="#4ade80" strokeWidth="0.5" fill="none" />
           <rect x="150" y="560" width="60" height="90" rx="2" stroke="#4ade80" strokeWidth="0.8" />
           <line x1="150" y1="585" x2="210" y2="585" stroke="#4ade80" strokeWidth="0.4" />
           <line x1="150" y1="605" x2="210" y2="605" stroke="#4ade80" strokeWidth="0.4" />
@@ -174,39 +124,43 @@ export default function Home() {
           <line x1="80" y1="575" x2="80" y2="645" stroke="#4ade80" strokeWidth="0.4" />
         </svg>
 
+        {/* Grid pattern */}
         <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(rgba(74,222,128,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(74,222,128,0.03) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
+          backgroundImage: 'linear-gradient(rgba(74,222,128,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(74,222,128,0.025) 1px, transparent 1px)',
+          backgroundSize: '70px 70px'
         }} />
 
-        {/* Occasional edge grid glow */}
-        <div className="home-grid-edge-glow" />
-
-        {/* Slow sweep shimmer across the grid */}
         <div className="home-grid-shimmer" />
+        {/* Subtle edge glow on left and right */}
+        <div className="absolute top-0 left-0 h-full w-32" style={{
+          background: 'linear-gradient(to right, rgba(74,222,128,0.05), transparent)'
+        }} />
+        <div className="absolute top-0 right-0 h-full w-32" style={{
+          background: 'linear-gradient(to left, rgba(74,222,128,0.05), transparent)'
+        }} />
       </div>
 
       {/* Navbar */}
-      <nav className="relative z-10 flex items-center justify-between px-10 py-3 border-b border-white/5 page-animate-in">
+      <nav className="relative z-10 flex items-center justify-between px-10 py-3 border-b border-white/5">
         <div className="flex items-center gap-2">
           <img src="/CalcioAI Logo.png" alt="CalcioIQ logo" className="w-14 h-14 object-contain" />
           <span className="text-green-400 font-bold text-2xl tracking-widest uppercase">CALCIO<span className="text-white">IQ</span></span>
         </div>
         <div className="flex items-center gap-10 text-md text-white/60">
-          <a href="/" className="home-nav-link hover:text-green-400 transition-colors">Home</a>
-          <a href="/compare" className="home-nav-link hover:text-green-400 transition-colors">Compare</a>
-          <a href="/about" className="home-nav-link hover:text-green-400 transition-colors">About</a>
-          <a href="https://github.com/felipeall/transfermarkt-api" target="_blank" rel="noopener noreferrer" className="home-nav-link hover:text-white/50 transition-colors">Data Source</a>
+          <a href="/" className="hover:text-green-400 transition-colors">Home</a>
+          <a href="/compare" className="hover:text-green-400 transition-colors">Compare</a>
+          <a href="/about" className="hover:text-green-400 transition-colors">About</a>
+          <a href="https://github.com/felipeall/transfermarkt-api" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">Data Source</a>
         </div>
       </nav>
 
       {/* Hero */}
-      <div className="relative z-20 flex flex-col items-center justify-center pt-20 pb-10 px-6 text-center page-animate-in page-delay-1">
-        <div className="home-badge-pulse inline-block mb-4 px-3 py-1 dashed-full border border-green-400/30 bg-green-400/5 text-green-400 text-xs tracking-widest uppercase">
+      <div className="relative z-20 flex flex-col items-center justify-center pt-20 pb-10 px-6 text-center">
+        <div className="inline-block mb-4 px-3 py-1 border border-green-400/30 bg-green-400/5 text-green-400 text-xs tracking-widest uppercase rounded-full">
           Football Intelligence Platform
         </div>
 
-        <h1 className="home-title-sheen text-6xl font-black tracking-tight mb-2 leading-none">
+        <h1 className="text-6xl font-black tracking-tight mb-2 leading-none">
           CALCIO<span className="text-green-400">IQ</span>
         </h1>
 
@@ -227,14 +181,14 @@ export default function Home() {
               value={query}
               onChange={(e) => searchPlayers(e.target.value)}
               placeholder="Search for a player..."
-              className="home-search-focus w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-4 text-white placeholder-white/25 text-base focus:outline-none focus:border-green-400/50 transition-all"
+              className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-4 text-white placeholder-white/25 text-base focus:outline-none focus:border-green-400/50 transition-colors"
             />
             {loading && (
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 text-sm animate-pulse">searching...</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 text-sm">searching...</span>
             )}
           </div>
 
-          {/* Dropdown - fully inline styles */}
+          {/* Dropdown */}
           {results.length > 0 && (
             <div style={dropdownStyle}>
               {results.map((player) => (
@@ -246,7 +200,6 @@ export default function Home() {
                   style={{
                     ...dropdownItemStyle,
                     backgroundColor: hoveredId === player.id ? '#1f2937' : '#111827',
-                    borderBottom: '1px solid rgba(255,255,255,0.06)',
                   }}
                 >
                   <div style={{
@@ -292,19 +245,18 @@ export default function Home() {
       </div>
 
       {/* Popular Players */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 mt-10 pb-24 page-animate-in page-delay-2">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 mt-10 pb-24">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-1 h-5 bg-green-400 rounded-full inline-block" />
           <h2 className="text-white/60 text-sm uppercase tracking-widest font-semibold">Popular Players</h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {POPULAR_PLAYERS.map((player, idx) => (
+          {POPULAR_PLAYERS.map((player) => (
             <button
               key={player.id + player.name}
               onClick={() => navigate(`/player/${player.id}`)}
-              className="home-pop-in home-hover-lift group flex items-center gap-3 bg-white/[0.03] border border-white/[0.07] rounded-xl px-4 py-3 hover:bg-white/[0.07] hover:border-green-400/30 transition-all text-left"
-              style={{ animationDelay: `${idx * 70 + 120}ms` }}
+              className="group flex items-center gap-3 bg-white/[0.03] border border-white/[0.07] rounded-xl px-4 py-3 hover:bg-white/[0.07] hover:border-green-400/30 transition-colors text-left"
             >
               <span className="text-2xl">{player.flag}</span>
               <div className="flex-1 min-w-0">
