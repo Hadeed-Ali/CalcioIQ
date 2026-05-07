@@ -196,7 +196,7 @@ function PlayerSearchPanel({ label, selected, onSelect, onClear, accentColor }) 
     const timer = setTimeout(async () => {
       setLoading(true)
       try {
-        const res = await fetch(`http://localhost:3001/api/players/search?query=${encodeURIComponent(query)}`)
+        const res = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/search?query=${encodeURIComponent(query)}`)
         const data = await res.json()
         setResults(Array.isArray(data) ? data.slice(0, 5) : [])
       } catch (e) {
@@ -306,11 +306,11 @@ function ComparisonView({ player1, player2, navigate }) {
   useEffect(() => {
     const fetchPlayer = async (id) => {
       const [profileRes, mvRes, transRes, achRes, injRes] = await Promise.all([
-        fetch(`http://localhost:3001/api/players/${id}/profile`),
-        fetch(`http://localhost:3001/api/players/${id}/market_value`),
-        fetch(`http://localhost:3001/api/players/${id}/transfers`),
-        fetch(`http://localhost:3001/api/players/${id}/achievements`),
-        fetch(`http://localhost:3001/api/players/${id}/injuries`),
+        fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/profile`),
+        fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/market_value`),
+        fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/transfers`),
+        fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/achievements`),
+        fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/injuries`),
       ])
       const profile = await profileRes.json()
       const marketValue = await mvRes.json()
@@ -321,7 +321,7 @@ function ComparisonView({ player1, player2, navigate }) {
       let stats = null
       if (profile?.name) {
         try {
-          const statsRes = await fetch(`http://localhost:3001/api/stats/search/${encodeURIComponent(profile.name)}`)
+          const statsRes = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/stats/search/${encodeURIComponent(profile.name)}`)
           stats = await statsRes.json()
         } catch (e) { }
       }

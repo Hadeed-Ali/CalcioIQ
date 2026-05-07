@@ -66,7 +66,7 @@ export default function Home() {
     window.searchTimeout = setTimeout(async () => {
       setLoading(true)
       try {
-        const res = await fetch(`http://localhost:3001/api/players/search?query=${value}`)
+        const res = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/search?query=${value}`)
         const data = await res.json()
         cache[value] = data.slice(0, 8)
         setResults(cache[value])

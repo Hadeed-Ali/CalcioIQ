@@ -45,11 +45,11 @@ export default function PlayerProfile() {
       setLoading(true)
       try {
         const [profileRes, mvRes, achRes, transRes, injRes] = await Promise.all([
-          fetch(`http://localhost:3001/api/players/${id}/profile`),
-          fetch(`http://localhost:3001/api/players/${id}/market_value`),
-          fetch(`http://localhost:3001/api/players/${id}/achievements`),
-          fetch(`http://localhost:3001/api/players/${id}/transfers`),
-          fetch(`http://localhost:3001/api/players/${id}/injuries`),
+          fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/profile`),
+          fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/market_value`),
+          fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/achievements`),
+          fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/transfers`),
+          fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/players/${id}/injuries`),
         ])
         const [profileData, mvData, achData, transData, injData] = await Promise.all([
           profileRes.json(),
@@ -66,7 +66,7 @@ export default function PlayerProfile() {
 
         if (profileData?.name) {
           try {
-            const statsRes = await fetch(`http://localhost:3001/api/stats/search/${encodeURIComponent(profileData.name)}`)
+            const statsRes = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/stats/search/${encodeURIComponent(profileData.name)}`)
             const statsData = await statsRes.json()
             setCurrentStats(statsData)
           } catch (e) {
@@ -78,7 +78,7 @@ export default function PlayerProfile() {
         // Fetch recent team matches
         if (profileData?.club?.name) {
           try {
-            const matchesRes = await fetch(`http://localhost:3001/api/team/matches?name=${encodeURIComponent(profileData.club.name)}`)
+            const matchesRes = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:3001"}/api/team/matches?name=${encodeURIComponent(profileData.club.name)}`)
             const matchesData = await matchesRes.json()
             setRecentMatches(matchesData)
           } catch (e) {
