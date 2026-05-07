@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const POPULAR_PLAYERS = [
-  { id: '937958', name: 'Lamine Yamal', team: 'Barcelona', flag: '🇪🇸', position: 'RW' },
-  { id: '502670', name: 'Kvicha Kvaratskhelia', team: 'PSG', flag: '🇬🇪', position: 'LW' },
-  { id: '132098', name: 'Harry Kane', team: 'Bayern Munich', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', position: 'CF' },
-  { id: '566723', name: 'Michael Olise', team: 'Bayern Munich', flag: '🇫🇷', position: 'RW' },
-  { id: '342229', name: 'Kylian Mbappé', team: 'Real Madrid', flag: '🇫🇷', position: 'LW' },
-  { id: '418560', name: 'Erling Haaland', team: 'Man City', flag: '🇳🇴', position: 'CF' },
+  { id: '937958', name: 'Lamine Yamal', team: 'Barcelona', country: 'es', position: 'RW' },
+  { id: '502670', name: 'Kvicha Kvaratskhelia', team: 'PSG', country: 'ge', position: 'LW' },
+  { id: '132098', name: 'Harry Kane', team: 'Bayern Munich', country: 'gb-eng', position: 'CF' },
+  { id: '566723', name: 'Michael Olise', team: 'Bayern Munich', country: 'fr', position: 'RW' },
+  { id: '342229', name: 'Kylian Mbappé', team: 'Real Madrid', country: 'fr', position: 'LW' },
+  { id: '418560', name: 'Erling Haaland', team: 'Man City', country: 'no', position: 'CF' },
 ]
 
 const cache = {}
@@ -258,7 +258,11 @@ export default function Home() {
               onClick={() => navigate(`/player/${player.id}`)}
               className="group flex items-center gap-3 bg-white/[0.03] border border-white/[0.07] rounded-xl px-4 py-3 hover:bg-white/[0.07] hover:border-green-400/30 transition-colors text-left"
             >
-              <span className="text-2xl">{player.flag}</span>
+              <img
+                src={`https://flagcdn.com/w40/${player.country}.png`}
+                alt={player.country}
+                className="w-7 h-5 object-cover rounded-sm flex-shrink-0"
+              />
               <div className="flex-1 min-w-0">
                 <p className="text-white text-sm font-medium group-hover:text-green-400 transition-colors truncate">{player.name}</p>
                 <p className="text-white/35 text-xs">{player.team} · {player.position}</p>
