@@ -5,7 +5,7 @@ const cors = require('cors')
 const app = express()
 app.use(cors())
 
-const TM_BASE = 'http://localhost:8000'
+const TM_BASE = process.env.TM_BASE || 'http://localhost:8000'
 const cache = {}
 
 // Generic helper to fetch from Transfermarkt and cache it
