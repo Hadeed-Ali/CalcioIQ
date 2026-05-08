@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const POPULAR_PLAYERS = [
@@ -45,6 +45,13 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [hoveredId, setHoveredId] = useState(null)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001'
+    fetch(`${apiUrl}/api/players/search?query=warmup`).catch(() => {
+      // Silently ignore - this is just to wake up the server
+    })
+  }, [])
 
   const searchPlayers = (value) => {
     setQuery(value)
