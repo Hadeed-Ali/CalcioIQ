@@ -1059,7 +1059,7 @@ const FUN_FACTS = [
   "Ronaldinho's first season at Barcelona is credited with reigniting the club's identity before the Messi-Iniesta-Xavi era.",
   " SECRET FACT 1: The owner of CalcioIQ, Hadeed, suports FC Barcelona - his favourite player is Pedri",
   " SECRET FACT 2: The owner of CalcioIQ, Hadeed, has a passion for speed typing - his 10 word record is 200WPM!",
-  " SECRET FACT 3: The owner of CalcioIQ, Hadeed, once pooped his pants in elementary school - his dad had to pick him up."
+  " SECRET FACT 3: The owner of CalcioIQ, Hadeed, once pooped in his pants in elementary school - his dad had to pick him up."
 ]
 
 function LoadingScreen() {
@@ -1083,7 +1083,7 @@ function LoadingScreen() {
       <div className="text-center max-w-md">
         <div className="w-12 h-12 border-2 border-green-400 border-t-transparent rounded-full animate-spin mx-auto mb-6" />
         <p className="text-white/40 text-sm mb-8">Loading player data...</p>
-        <p className="text-white/35 text-s mb-8 italic">First load might a few extra seconds - setting up the cache!</p>
+        <p className="text-white/35 text-s mb-8 italic">First load might take a few extra seconds - setting up the cache!</p>
 
         <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-5">
           <p className="text-green-400 text-xs uppercase tracking-widest mb-3 font-semibold">
