@@ -1047,7 +1047,7 @@ function LoadingScreen() {
       <div className="text-center max-w-md">
         <div className="w-12 h-12 border-2 border-green-400 border-t-transparent rounded-full animate-spin mx-auto mb-6" />
         <p className="text-white/40 text-sm mb-8">Loading player data...</p>
-        <p className="text-white/35 text-s mb-8 italic">First load takes a few extra seconds - loading up the cache!</p>
+        <p className="text-white/35 text-s mb-8 italic">First load might take ~25 seconds - cold starting the site!</p>
 
         <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-5">
           <p className="text-green-400 text-xs uppercase tracking-widest mb-3 font-semibold">
