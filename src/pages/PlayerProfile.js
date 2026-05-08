@@ -366,7 +366,7 @@ export default function PlayerProfile() {
 
         {/* Tab buttons */}
         <div className="flex gap-8 sm:gap-20 border-b border-white/5 mb-8 mt-2">
-          {['overview', 'stats', 'market value', 'trophies'].map((tab) => (
+          {['overview', 'stats', 'market value', 'achievements'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -727,7 +727,7 @@ export default function PlayerProfile() {
         )}
 
         {/* Trophies Tab */}
-        {activeTab === 'trophies' && (
+        {activeTab === 'achievements' && (
           <div className="pb-16 profile-animate-in profile-delay-3">
             <div className="flex items-center gap-2 mb-6">
               <span className="w-1 h-4 bg-green-400 rounded-full" />
@@ -1047,7 +1047,7 @@ function LoadingScreen() {
       <div className="text-center max-w-md">
         <div className="w-12 h-12 border-2 border-green-400 border-t-transparent rounded-full animate-spin mx-auto mb-6" />
         <p className="text-white/40 text-sm mb-8">Loading player data...</p>
-        <p className="text-white/35 text-s mb-8 italic">First load might take ~25 seconds - cold starting the site!</p>
+        <p className="text-white/35 text-s mb-8 italic">First load might a few extra seconds - setting up the cache!</p>
 
         <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-5">
           <p className="text-green-400 text-xs uppercase tracking-widest mb-3 font-semibold">
