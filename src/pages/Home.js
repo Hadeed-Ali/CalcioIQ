@@ -163,7 +163,7 @@ export default function Home() {
 
       {/* Hero */}
       <div className="relative z-20 flex flex-col items-center justify-center pt-20 pb-10 px-6 text-center">
-        <div className="inline-block mb-4 px-3 py-1 border border-green-400/30 bg-green-400/5 text-green-400 text-xs tracking-widest uppercase rounded-full">
+        <div className="inline-block mb-4 px-3 py-1 border border-green-400/30 bg-green-400/5 text-green-400 text-xs tracking-widest uppercase dashed-full">
           Football Intelligence Platform
         </div>
 
